@@ -1,0 +1,109 @@
+
+
+$navbar-color : #B5CDA3 ;
+#frame{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #frame-parent{
+        width: 100%;
+        height: 95%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        #frame-head{
+            padding-top: 25px;
+            width: 90%;
+            height: 15%;
+            display: flex;
+            #filter-container{
+                width: 50%;
+                height: 100%;
+                position: relative;
+                #filter{
+                    width: 100%;
+                    position: absolute;
+                    bottom: 40px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    user-select: none;
+                    #chip-container{
+                        height: 100%;
+                        width: fit-content;
+                        margin: 10px;
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
+                    #filtertitle{
+                        height: fit-content;
+                        margin: 10px;
+                        color: #007BFF;
+                        text-decoration: underline;
+                        font-size: 20px;
+                    }
+                }
+                #finding-switch{
+                    width: 220px;
+                    font-size: 20px;
+                    margin-left: 10px;
+                    position: absolute;
+                    bottom: 5px;
+                    height: 30px;
+                }
+            }
+            #carbonfoot{
+                direction: rtl;
+                width: 60%;
+                img{
+                    width: 80px;
+                    height: 80px;
+                }
+                #searchbar{
+                    height: fit-content;
+                    width: fit-content;
+                }   
+            }
+        }
+        #frame-body{
+            width: 100%;
+            height: 87.5%;
+            display: flex;
+            justify-content: center;
+            #frame-body-container{
+                border-top: 1px solid gray;
+                padding-top: 8px;
+                width: 90%;
+                height: 95%;
+                display: flex;
+                #frame-body-map{
+                    width: 60%;
+                    height: 100%;
+                    background-color: rgb(255, 200, 127);
+                    background-image: url('../../imgs/map.png');
+                }
+                #frame-body-list{
+                    width: 40%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    #scrollpanel{
+                        width: 95%;
+                        height: 100%;
+                        border: 1px solid;
+                    }
+                }
+            }
+        }
+    }
+    
+} 
+
+#navbar-background{
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    background-color: $navbar-color;
+}

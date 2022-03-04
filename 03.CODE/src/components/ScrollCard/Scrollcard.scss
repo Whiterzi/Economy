@@ -1,0 +1,61 @@
+#body-list-card{
+    margin: auto;
+    margin-top: 10px;
+    width: 94%;
+    height: 252px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    border: 1px solid;
+    #img-for-preview{
+        width: 40%;
+        height: 250px;
+        background-color: #B5CDA3;
+    }
+    #item-describe-text{
+        padding-left: 15px;
+        padding-top: 20px;
+        font-size: 20px;
+        width: 60%;
+        height: 250px;
+        display: flex;
+        flex-wrap: wrap;
+        p{
+            margin: 0;
+            line-height: 28px;
+        }
+        #rowname{
+            width: 30%;
+        }
+        #rowvalue{
+            width: 40%;
+        }
+        #price{
+            margin-top: 20px;
+        }
+    }
+    #goodstoremark{
+        // width: 20px;
+        // height: 20px;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+    .purchase-button{
+        position: absolute;
+        width: 70px;
+        height: 30px;
+        font-size: 20px;
+        right: 5px;
+        bottom: 5px;
+        padding: 0;
+        border-radius: 5px;
+        color: white;
+        background-color: #007BFF;
+        border: none;
+    }
+
+&:hover{
+    background-color: #C4C4C4;
+}
+}

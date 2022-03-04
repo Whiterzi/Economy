@@ -1,0 +1,26 @@
+#chips{
+    margin: 0;
+    width: 120px;
+    color: gray;
+    height: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid;
+    border-radius: 15px;
+    line-height: 25px;
+    text-align: right;
+    justify-content: center;
+    margin-right: 10px;
+    padding-right: 5px;
+    user-select: none;
+    #chip-text{
+        margin-right: 5px;
+        width: 80%;
+        font-size: 20px;
+    }
+    #chip-delete{
+        line-height: 25px;
+        width: 10%;
+        height: fit-content;
+    }
+}
