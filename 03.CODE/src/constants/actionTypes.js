@@ -1,0 +1,5 @@
+export const LOGOUT = 'LOGOUT';
+
+export const THIS_IS_TEST = 'THIS_IS_TEST';
+export const THIS_IS_TEST_SUCCEEDED = 'THIS_IS_TEST_SUCCEEDED';
+export const THIS_IS_TEST_FAILED = 'THIS_IS_TEST_FAILED';

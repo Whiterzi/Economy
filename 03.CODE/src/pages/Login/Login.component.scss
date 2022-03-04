@@ -1,0 +1,30 @@
+.login-page{
+    display: flex;
+}
+
+input {
+    height: 44px;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.logo-img{
+    /* width:286px; */
+    height:100%;
+    object-fit:cover;
+    object-position:50% 50%;
+}
+
+.login-background-image{
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-size: 100%, 100vh;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.452);
+    border: 1px solid red;
+}
