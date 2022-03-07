@@ -1,6 +1,6 @@
 import React from "react";
 import './Filterchips.scss'
-import deletbutton from '../imgs/metro-cross.png'
+import deletbutton from '../../imgs/metro-cross.png'
 
 
 const Chipsgenerate = (props) =>{

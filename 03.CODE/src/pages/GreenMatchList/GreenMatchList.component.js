@@ -1,13 +1,12 @@
 import React , {useState} from "react";
 import './GreenMatchList.component.scss';
-import Navbar from "../../components/Navigationbar";
-import Searchbar from "../../components/Searchbar";
-import DivSwitch from "../../components/Divswitch";
-import Sidebar from "../../components/Sidebar";
+import Searchbar from "../../components/SearchBar/Searchbar";
+import DivSwitch from "../../components/DivSwitch/Divswitch";
+import Sidebar from "../../components/SideBar/Sidebar";
 import { ScrollPanel } from 'primereact/scrollpanel';
-import Scrollcard from "../../components/Scrollcard";
-import Filterchips from "../../components/Filterchips";
-import Matchconfirm from "../../components/Matchconfirm";
+import Scrollcard from "../../components/ScrollCard/Scrollcard";
+import Filterchips from "../../components/FilterChips/Filterchips";
+import Matchconfirm from "../../components/MatchConfirm/Matchconfirm";
 
 
 const GreenMatchList = ()=>{
@@ -15,11 +14,11 @@ const GreenMatchList = ()=>{
     const [Filteroption , setFilteroption] = useState([]);
     const [Popup , setPopup] =useState(false);
     const [PopupID , setPopupID] =useState();
+    const [Searchvalue , onSearching] = useState('');
+
     const openSidebar = ()=>{
         setSidebarState(!SidebarState)
     }
-
-
 
     const onCheckboxChanges = (e)=>{
         let tempFilteroption = [...Filteroption]
@@ -47,8 +46,7 @@ const GreenMatchList = ()=>{
     return( 
         <>
         <Matchconfirm enable={Popup} popup={Callpopup} popoff={CallPopoff} popid={PopupID}/>
-        <Navbar borderon={false}/>
-        <div id="navbar-background"></div>
+        {/* <div id="navbar-background"></div> */}
         <div id="frame">
             <div id="frame-parent">
                 <div id="frame-head">
@@ -56,7 +54,7 @@ const GreenMatchList = ()=>{
                         <div>
                         <div id='filter'>
                         { /* eslint-disable-next-line jsx-a11y/anchor-is-valid */ }
-                            <a id="filtertitle" href="#" onClick={openSidebar}>篩選條件:</a>
+                            <a id="filtertitle" onClick={openSidebar}>篩選條件:</a>
                             <div id="chip-container">
                                 <Filterchips Filteroption={Filteroption} onItemDelete={onItemDelete} />
                             </div>
@@ -70,7 +68,7 @@ const GreenMatchList = ()=>{
                         <div>
                             <img src={require('../../imgs/CarbonFoot.png')} alt="foot" />
                         </div>
-                        <Searchbar id="searchbar"/>
+                        <Searchbar id="searchbar" onSearch={onSearching} values={Searchvalue}/>
                     </div>
 
                 </div>
@@ -85,7 +83,7 @@ const GreenMatchList = ()=>{
                         <div id="frame-body-map"></div>
                         <div id="frame-body-list">
                             <ScrollPanel id="scrollpanel">
-                                <Scrollcard filter={Filteroption} popup={Callpopup} />
+                                <Scrollcard filter={Filteroption} keyword={Searchvalue} popup={Callpopup} />
                             </ScrollPanel>
                         </div>
                     </div>

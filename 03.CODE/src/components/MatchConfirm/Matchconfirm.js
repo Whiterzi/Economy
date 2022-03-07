@@ -1,6 +1,6 @@
 import React from "react";
 import './Matchconfirm.scss'
-import GetData from "./GetData";
+import GetData from "../GetData";
 
 const MatchconfirmPop = (props)=>{
     const datalist = (GetData().filter(element=>element.id===props.popid))[0]

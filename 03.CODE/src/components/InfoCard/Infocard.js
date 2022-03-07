@@ -1,8 +1,8 @@
 import React from "react";
 import './Infocard.scss'
-import backarrow from '../imgs/Backarrow.png'
-import GoodStoremark from '../imgs/GoodStoreMark.png'
-import followheart from '../imgs/addfollow.png'
+import backarrow from '../../imgs/Backarrow.png'
+import GoodStoremark from '../../imgs/GoodStoreMark.png'
+import followheart from '../../imgs/addfollow.png'
 
 
 const Infocardgenerate = (props) => {
@@ -31,7 +31,10 @@ const Infocardgenerate = (props) => {
                 <div id='item-name'>
                     {Infos.name}
                 </div>
-                <img src={followheart} alt='heart' />
+                <div id="follow-heart">
+                    <img src={followheart} alt='heart' />
+                    <div id="tooltip-for-heart">加入追蹤</div>
+                </div>
             </div>
             <div id='image-preview'>
                 圖片

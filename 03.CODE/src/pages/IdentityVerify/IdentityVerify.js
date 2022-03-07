@@ -6,6 +6,9 @@ import Page2 from '../Page2/Page2';
 import Page2ListContent from '../Page2/Page2ListContent';
 import GeneralParameters from '../../components/GeneralParamters';
 
+import MainPages from '../MainPage/Mainpage';
+import GreenMatchList from '../GreenMatchList/GreenMatchList.component';
+
 const IdentityVerify = (props) => {
     GeneralParameters.history = useNavigate();
     
@@ -26,7 +29,8 @@ const IdentityVerify = (props) => {
             />
             <Route path=':list' element={<Page2ListContent />} />
           </Route>
-          <Route path='*' element={<Page1 />} />
+          <Route path='/' element={<MainPages />} />
+          <Route path='/greenmatch' element={<GreenMatchList />} />
         </Route>
       </Routes>
     )

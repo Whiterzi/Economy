@@ -77,6 +77,35 @@
         align-items: center;
         padding: 5px;
         font-size: 30px;
+        #follow-heart{
+            position: relative;
+            #tooltip-for-heart{
+                position: absolute;
+                font-size: 14px;
+                text-align: center;
+                line-height: 24px;
+                width: 70px;
+                border-radius: 10%;
+                background-color: #c4c4c4;
+                left: -75%;
+                bottom: 90%;
+                border-bottom: 1px black dotted;
+                visibility: hidden;
+                &::after{
+                    content: " ";
+                    position: absolute;
+                    top: 100%; /* At the bottom of the tooltip */
+                    left: 50%;
+                    margin-left: -5px;
+                    border-width: 5px;
+                    border-style: solid;
+                    border-color: #C4C4C4 transparent transparent transparent;
+                }
+            }
+            &:hover #tooltip-for-heart{
+                visibility: visible;
+            }
+        }
     }
     #image-preview{
         width: 100%;

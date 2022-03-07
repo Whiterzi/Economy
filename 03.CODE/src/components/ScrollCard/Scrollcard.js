@@ -1,13 +1,10 @@
 import React ,{useState} from "react";
-import goodmark from '../imgs/goodmark.png'
+import goodmark from '../../imgs/goodmark.png'
 import './Scrollcard.scss'
-import Infocard from "./Infocard";
-import GetData from "./GetData";
+import Infocard from "../InfoCard/Infocard";
+import GetData from "../GetData";
 
-
-
-
-const filtedlist = (filteroption)=>{
+const filtedlist = (filteroption,keyword)=>{
     let tempList = GetData().slice()
     let resultlist = []
     let filter = filteroption
@@ -19,6 +16,11 @@ const filtedlist = (filteroption)=>{
     })
     // console.log(GetData().filter(element=>element.id=='001'))
     resultlist.length===0 && (isItgoodstore ? resultlist = tempList.filter(element=>element.goodstore) : resultlist = tempList)
+    resultlist = resultlist.filter(element=>{
+        return(
+            element.name.includes(keyword)
+        )
+    })
     return resultlist
 }
 
@@ -51,7 +53,10 @@ const Cardgenerate=(props)=>{
                     </div>
                     
                 </div>
-                <img id="goodstoremark" src={goodmark} alt='goodmark' hidden={element.goodstore ? '' : 'hide'} />
+                <div id="goodmark-and-tooltip">
+                    <img src={goodmark} alt='goodmark' hidden={element.goodstore ? '' : 'hide'} />
+                    <div id='tooltip-for-goodstoremark'>商品認證</div>
+                </div>
                 <button className="purchase-button" id={element.id} onClick={props.onClick}>購買</button>
             </div>)
         });
@@ -65,6 +70,7 @@ const Scrollcard = (props)=>{
     const [showlist , changeShowstate] = useState(true)
     const [InfObject , setInfObject] = useState([])
     const Filters = props.filter
+    const keyword = props.keyword
     const PurchaseButtonEvent = (e)=>{
         setInfObject(GetData().filter(element=>element.id===e.target.id))
         changeShowstate(false)
@@ -73,7 +79,7 @@ const Scrollcard = (props)=>{
         changeShowstate(true)
     }
     return (
-        showlist ? <Cardgenerate content={filtedlist(Filters)} onClick={PurchaseButtonEvent}  /> : <Infocard InfObject={InfObject} onBack={InfocardBackEvent} popup={props.popup} />
+        showlist ? <Cardgenerate content={filtedlist(Filters,keyword)} onClick={PurchaseButtonEvent}  /> : <Infocard InfObject={InfObject} onBack={InfocardBackEvent} popup={props.popup} />
     )
 }
 

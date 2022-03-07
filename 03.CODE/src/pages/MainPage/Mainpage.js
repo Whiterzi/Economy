@@ -1,13 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import './Mainpage.css';
-import Navbar from '../../components/Navigationbar';
+
 
 
 const MainPages = ()=>{
     return(
     <>
-    <Navbar/>
     <div style={{ height: '5137.5px' }}>
 
       {/* water png */}
