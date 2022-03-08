@@ -1,42 +1,43 @@
 #Navbar {
-    /* background-color: aqua; */
-    position: fixed;
-    width: 100%;
-    height: 50px;
-    z-index: 3;
-  
+  /* background-color: aqua; */
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  z-index: 3;
+
+  display: flex;
+  #navleft {
+    width: 65%;
     display: flex;
-    #navleft {
-        width: 65%;
-        display: flex;
-        align-items: center;
-        margin-left: 20px;
-        #NavbarlogoText {
-            margin-left: 1%;
-          }
-      }
-  
-    #navright {
-        width: 35%;
-        text-align: justify;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        .NavbarRightBlock {
-            display: flex;
-            width: 100%;
-            text-align: center;
-            line-height: 40px;
-            justify-content: center;
-          }
+    align-items: center;
+    margin-left: 20px;
+    #NavbarlogoText {
+      margin-left: 1%;
     }
   }
-  
-  
-  
-  /* #Navbar #navleft #Navbarlogo {
-    width: 40px;
-    height: 40px;
-    margin-left: 1%;
-  } */
-  
+
+#navright {
+    width: 35%;
+    text-align: justify;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    line-height: 40px;
+    .navbarrightblock {
+      display: flex;
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+      user-select: none;
+    }
+    .blockborder {
+      border-right: solid 1px;
+    }
+  }
+}
+.greenbackground{
+  background-color: #B5CDA3;
+}
+.textwhite{
+  color:white;
+}

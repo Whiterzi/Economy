@@ -4,6 +4,7 @@ import './Scrollcard.scss'
 import Infocard from "../InfoCard/Infocard";
 import GetData from "../GetData";
 
+
 const filtedlist = (filteroption,keyword)=>{
     let tempList = GetData().slice()
     let resultlist = []
@@ -14,7 +15,6 @@ const filtedlist = (filteroption,keyword)=>{
             filter.includes(element.type) && (!isItgoodstore || element.goodstore===isItgoodstore)
         )
     })
-    // console.log(GetData().filter(element=>element.id=='001'))
     resultlist.length===0 && (isItgoodstore ? resultlist = tempList.filter(element=>element.goodstore) : resultlist = tempList)
     resultlist = resultlist.filter(element=>{
         return(
@@ -25,11 +25,8 @@ const filtedlist = (filteroption,keyword)=>{
 }
 
 const Cardgenerate=(props)=>{
-    let arr = []
-    const cardlist1 = props.content
-    const llist = ()=>{
-        cardlist1.forEach(element => {
-            arr.push(
+    return props.content.map(element=>{
+        return(
             <div id='body-list-card' key={element.id}>
                 <div id='img-for-preview'></div>
                 <div id='item-describe-text'>
@@ -55,17 +52,21 @@ const Cardgenerate=(props)=>{
                 </div>
                 <div id="goodmark-and-tooltip">
                     <img src={goodmark} alt='goodmark' hidden={element.goodstore ? '' : 'hide'} />
-                    <div id='tooltip-for-goodstoremark'>商品認證</div>
+                    <div id='tooltip-for-goodstoremark' className={!element.goodstore && 'display-none'} >商品認證</div>
                 </div>
                 <button className="purchase-button" id={element.id} onClick={props.onClick}>購買</button>
-            </div>)
-        });
-    }
-    llist()
-    // console.log(arr)
-    return arr
+            </div>
+        )
+    })
 }
 
+
+/*
+--props
+filter - Array for selected filters 
+keyword - string to filt item name
+popup - callback to pop confirm window
+*/
 const Scrollcard = (props)=>{
     const [showlist , changeShowstate] = useState(true)
     const [InfObject , setInfObject] = useState([])

@@ -1,6 +1,10 @@
 
 import { InputText } from 'primereact/inputtext';
 
+/*
+--props
+hook [Searchvalue, onSearching] = [value , onSearching]
+*/
 const Searchbar = (Search) => {
     return (
         <div>

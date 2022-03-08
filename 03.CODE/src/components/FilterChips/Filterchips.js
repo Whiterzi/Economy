@@ -3,6 +3,7 @@ import './Filterchips.scss'
 import deletbutton from '../../imgs/metro-cross.png'
 
 
+
 const Chipsgenerate = (props) =>{
     return (
         <div id='chips'>
@@ -15,15 +16,14 @@ const Chipsgenerate = (props) =>{
         </div>
     )
 }
-
+/* 
+--props
+Filteroption - Array to store selected filter
+onItemDelete - function to delete filter from filteroption
+*/
 const Filterchips = (props)=>{
-    
-    let tempOutput = []
-    props.Filteroption.forEach(element => {
-        tempOutput.push(<Chipsgenerate itemname={element} key={element} props={props}/>)
-    });
-    return tempOutput
-    
+    return props.Filteroption.map(element=>{
+        return <Chipsgenerate itemname={element} key={element} props={props}/>
+    })
 }
-
 export default Filterchips

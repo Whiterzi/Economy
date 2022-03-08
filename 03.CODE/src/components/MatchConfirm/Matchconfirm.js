@@ -2,7 +2,13 @@ import React from "react";
 import './Matchconfirm.scss'
 import GetData from "../GetData";
 
+/*
+--props 
+popoff - function to close window
+popid - id for finding object from getdata()
+*/
 const MatchconfirmPop = (props)=>{
+    // find object using popid 
     const datalist = (GetData().filter(element=>element.id===props.popid))[0]
 
     return (
@@ -63,7 +69,7 @@ const MatchconfirmPop = (props)=>{
             </div>
             
             <div id="background-square" />
-            <button id='confirm-button' onClick={props.popup}>
+            <button id='confirm-button' onClick={props.popoff}>
                 確定
             </button>
         </div>
@@ -71,11 +77,18 @@ const MatchconfirmPop = (props)=>{
 }
 
 
+/*
+--props 
+enable - boolean
+popup - function to open window 
+popoff - function to close window 
+popid - id for finding object from getdata()
+*/
 const Matchconfirm = (props)=>{
     if(props.enable){
         return (
             <div id='matchconfirm-base' onClick={props.popoff}>
-                <MatchconfirmPop popup={props.popup} popid={props.popid} />
+                <MatchconfirmPop popoff={props.popoff} popid={props.popid} />
             </div>
         )
     }else{

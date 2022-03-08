@@ -46,7 +46,6 @@ const GreenMatchList = ()=>{
     return( 
         <>
         <Matchconfirm enable={Popup} popup={Callpopup} popoff={CallPopoff} popid={PopupID}/>
-        {/* <div id="navbar-background"></div> */}
         <div id="frame">
             <div id="frame-parent">
                 <div id="frame-head">
@@ -70,7 +69,6 @@ const GreenMatchList = ()=>{
                         </div>
                         <Searchbar id="searchbar" onSearch={onSearching} values={Searchvalue}/>
                     </div>
-
                 </div>
                 <div id="frame-body">
                     <Sidebar 

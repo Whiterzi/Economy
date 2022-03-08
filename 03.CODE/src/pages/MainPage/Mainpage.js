@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import './Mainpage.css';
+import './Mainpage.scss';
+
 
 
 
@@ -8,30 +9,26 @@ const MainPages = ()=>{
     return(
     <>
     <div style={{ height: '5137.5px' }}>
-
       {/* water png */}
       <div id="main01">
-        <a href="#main02point"><div id="main01TEXT">當永續行動成為生活中的一部份</div></a>
+        <div id="main01text">當永續行動成為生活中的一部份</div>
         <div id="vector5" />
         <div id="vector7" />
       </div>
       {/* Sustanability */}
       <div id="main02">
-        <a name="main02point">{ }</a>
+        <div id='sustainability' />
         <div id="main02bar">
         </div>
       </div>
-
     </div>
     {/* How it works */}
-    <div style={{ height: '2789px' }}>
-      <div id="main03">
-        <a name="main03point">{ }</a>
-      </div>
+    <div style={{ height: '2789px' }} id='how-it-works'>
+      <div id="main03"/>
     </div>
     {/* Contact Us */}
     <div id="main4">
-      <a name="main4point">{ }</a>
+      <div id='contact-us' />
       <div id="main4img" />
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <ContactUS />
@@ -43,26 +40,21 @@ const MainPages = ()=>{
     )
   }
 
-
-
-  
   const ContactUS = ()=>{
-    const TextAreaStyle = {marginTop:'20px',marginLeft:'150px',width:'730px',height:'50px',padding:'10px'}
-    const ButtonStyle = {marginTop:'20px',marginLeft:'150px',width:'150px',height:'80px',textAlign:'center',verticalAlign:'middle'
-    ,fontSize:'30px',background:'#C1AC95',border:'none',borderRadius:'15px',color:'#FFF',fontWeight:'bold'}
     return(
-      <div style={{ width: '1000px', marginTop: '150px' }}>
-            <div style={{ width: '100%', textAlign: 'center', fontSize: '50px' }}>Contact Us</div>
-            <div style={{ width: '100%', textAlign: 'left', fontSize: '20px', paddingLeft: '150px', fontFamily: 'bold', marginTop: '50px' }}>想了解什麼?</div>
-            <textarea style={TextAreaStyle} placeholder='name'></textarea>
-            <textarea style={TextAreaStyle} placeholder='company'></textarea>
-            <textarea style={TextAreaStyle} placeholder='email address'></textarea>
-            <textarea style={{...TextAreaStyle , height:'150px'}} placeholder='question'></textarea>
-            <button style={ButtonStyle}>SAVE</button>
+      <div id='contact-main-frame'>
+            <div id='contact-title'>
+              Contact Us
+              </div>
+            <div id="contact-subtitle">
+              想了解什麼?
+              </div>
+            <textarea className="textarea" placeholder='name'/>
+            <textarea className="textarea" placeholder='company'/>
+            <textarea className="textarea" placeholder='email address'/>
+            <textarea className="textarea higher-textarea" placeholder='question'/>
+            <button id='save-button'>SAVE</button>
           </div>
     )
   }
-
-  
-
   export default MainPages;

@@ -1,70 +1,92 @@
-import React, {useState} from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import './Navigationbar.scss'
-import { useLocation } from "react-router-dom";
+import { useLocation , useNavigate} from "react-router-dom";
 
 
 
 
 const Navbar = (props) => {
-    const [view , setview] = useState(false);
-    const [navcolor, setnavcolor] = useState("black");
+  const [navcolor, setnavcolor] = useState(false);
+  const currentpath = useLocation().pathname
+  const blockclass = `navbarrightblock ${currentpath === '/' && 'blockborder'} ${navcolor && 'textwhite' }`
+  const Navigate = useNavigate()
 
 
-    const colorswitch = navcolor === "black" ? { color: '#000' } : { color: '#FFF' }
-    const viewdiff = view ? {borderRight: '1px solid'} : {borderRight:'none'}  
-    props.borderon && setview(true)
-
-
-    const ScrollEventListener = () => {
-      if (window.scrollY > 3440 && window.scrollY < 4400) {
-        setnavcolor("white")
-      } else {
-        setnavcolor("black")
-      }
-    }
-    window.addEventListener('scroll', ScrollEventListener);
-
-
-    // add class & anchor & remove inline style
-    
-    
-    const enrlwe = ()=>{
-
-      const elemne = document.getElementById('main4')
-      elemne.scrollIntoView()
-    }
-
-    return (
-    
-      <div id="Navbar">
-        <div id="navleft">
-          <NavLink to='/'>
-          <img src={require('../../imgs/GreenMatchICON.png')} alt="ellipse" id="Navbarlogo"></img>
-          {/* <p id="NavbarlogoText" style={colorswitch}>LOGO</p> */}
-          </NavLink>
-        </div>
-  
-        <div id="navright" style={colorswitch}>
-          <div className="NavbarRightBlock" style={viewdiff} >
-            {/* <a style={colorswitch} href="#">需求媒合</a> */}
-            <NavLink to='/greenmatch'>需求媒合</NavLink>
-            </div>
-          <div className="NavbarRightBlock" style={viewdiff} ><a style={colorswitch} onClick={enrlwe}>關於永續</a></div>
-          <div className="NavbarRightBlock" style={viewdiff} ><a style={colorswitch} href="#main03point">媒合流程</a></div>
-          <div className="NavbarRightBlock" style={{ border: 'none' }} ><a style={colorswitch} href="#main4point">聯繫我們</a></div>
-          <div className="NavbarRightBlock" style={{ border: 'none' }}>
-            <a>
-              {
-                navcolor === "black" ? (<img src={require('../../imgs/user 1.png')} alt="hed1" />) : (<img src={require('../../imgs/user (1) 1.png')} alt="hed2" />)
-              }
-            </a>
-          </div>
-        </div>
-      </div>
-    )
+  const movetoSustainbility = ()=>{
+    currentpath!=='/' && Navigate('/')
+    setTimeout(()=>{
+      const SustainbilityAnchor = document.getElementById('sustainability')
+      SustainbilityAnchor.scrollIntoView()  
+    },0)    
+  }
+  const movetoHowItWorks = ()=>{
+    currentpath!=='/' && Navigate('/')
+    setTimeout(()=>{
+      const HowItWorks = document.getElementById('how-it-works')
+      HowItWorks.scrollIntoView()
+    })
+  }
+  const movetoContactUs = ()=>{
+    currentpath!=='/' && Navigate('/')
+    setTimeout(()=>{
+      const ContactUs = document.getElementById('contact-us')
+      ContactUs.scrollIntoView()
+  })
+  }
+  const movetoHomepage = ()=>{
+    currentpath!=='/' && Navigate('/')
+    setTimeout(()=>{
+      const Header = document.getElementById('root')
+      Header.scrollIntoView()
+    })
   }
 
   
+  useEffect(()=>{
+    if(currentpath==='/'){
+      const observer = new IntersectionObserver((entries)=>{
+        console.log(entries[0].boundingClientRect)
+        if((entries[0].boundingClientRect.y>-60 && entries[0].boundingClientRect.y<0)&& !navcolor ){
+          setnavcolor(true)
+        }else if(navcolor && (entries[0].boundingClientRect.y<=-60 || entries[0].boundingClientRect.y>=0)){
+          setnavcolor(false)
+        }
+      },{threshold:[0,0.5,1]})
+      const targetbar = document.querySelector('#main02bar')
+      observer.observe(targetbar)
+    }
+  })
 
-  export default Navbar;
+  return (
+    <div className={`${currentpath === '/greenmatch' && 'greenbackground'}`} id="Navbar">
+      <div id="navleft">
+        <div onClick={movetoHomepage}>
+          <img src={require('../../imgs/GreenMatchICON.png')} alt="ellipse" id="Navbarlogo"></img>
+        </div>
+      </div>
+      <div id="navright">
+        <div className={blockclass} onClick={()=>{Navigate('/greenmatch')}}  >
+          需求媒合
+        </div>
+        <div className={blockclass} onClick={movetoSustainbility}  >
+          關於永續
+        </div>
+        <div className={blockclass} onClick={movetoHowItWorks}>
+          媒合流程
+        </div>
+        <div className={`navbarrightblock ${navcolor && 'textwhite'}`} onClick={movetoContactUs}>
+          聯繫我們
+        </div>
+        <div className="navbarrightblock">
+          {
+            !navcolor ? (<img src={require('../../imgs/user 1.png')} alt="hed1" />) : (<img src={require('../../imgs/user (1) 1.png')} alt="hed2" />)
+          }
+        </div>
+      </div>
+    </div>
+  )
+}
+
+
+
+export default Navbar;

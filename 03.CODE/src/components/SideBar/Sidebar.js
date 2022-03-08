@@ -5,19 +5,41 @@ import { Checkbox } from 'primereact/checkbox';
 import { Button } from 'primereact/button';
  
 
-const sidebarTriggered =  {
-    transform:'translate(500px)',
-    animationName : 'pullout'
-}
-const sidebarNOTTriggered = {
-    transform:'translate(0)',
-    animationName : 'pushin'
-}
 
+//props - filteroption , callback:onCheckboxChanges
+const GenerateCheckBox = (props)=>{
+    const FilterArray = [{
+        ID:'chwood',
+        value:'木材'
+    },{
+        ID:'chmetal',
+        value:'金屬'
+    },{
+        ID:'chdesk',
+        value:'桌椅',
+    },{
+        ID:'ch3c',
+        value:'3C產品'
+    }]
+    return FilterArray.map(element=>{
+        return(
+            <>
+            <Checkbox id='checkbox-size' inputId={element.ID} value={element.value} onChange={props.callback} checked={props.Filteroption.includes(element.value)}></Checkbox>
+            <label htmlFor={element.ID} className="p-checkbox-label">{element.value}</label>
+            </>
+        )
+    })
+
+}
+/*
+--props
+SidebarState - state of switching on/off
+setSidebarState - callback to switch on/off
+Filteroption - array to make chosen filter checked
+onCheckboxChanges - callback to return chosen filter
+*/
 
 const Sidebar = (props) => {
-    // console.log(props.SidebarState)
-    
     const onTriggerChange = ()=>{
         props.setSidebarState(!props.SidebarState)
     }
@@ -27,13 +49,15 @@ const Sidebar = (props) => {
     const chekboxsize = {
         transform:'scale(1.5)'
     }
-    
+
+    const barbuttontrigger = `sidebar-trigger ${props.SidebarState!=="Init" && (props.SidebarState ? 'sidebar-triggered' : 'sidebar-nottriggered')}`
+    const barpaneltrigger = `sidebar ${props.SidebarState!=="Init" && (props.SidebarState ? 'sidebar-triggered' : 'sidebar-nottriggered')}`
     return (
         <>
-            <div style={props.SidebarState==="Init"? {} : (props.SidebarState ? sidebarNOTTriggered:sidebarTriggered)} id='sidebar-trigger' onClick={onTriggerChange} >
+            <div className={barbuttontrigger} onClick={onTriggerChange} >
                 {!props.SidebarState ? '<' : '>'}
             </div>
-            <div id="sidebar" style={props.SidebarState==="Init"? {} : (props.SidebarState ? sidebarNOTTriggered:sidebarTriggered)}>
+            <div className={barpaneltrigger}>
                 <div id="sidebar-content">
                     <div className="sidebar-title">
                         <div className="sidebar-text">地區</div>
@@ -46,17 +70,7 @@ const Sidebar = (props) => {
                         <div className="sidebar-text">種類</div>
                     </div>
                     <div id="sidebar-checkbox-list">
-                        <Checkbox style={chekboxsize} inputId="cbwood" value="木材" onChange={props.onCheckboxChanges} checked={props.Filteroption.includes("木材")}></Checkbox>
-                        <label htmlFor="cbwood" className="p-checkbox-label">木材</label>
-
-                        <Checkbox style={chekboxsize} inputId="cbmetal" value="金屬" onChange={props.onCheckboxChanges} checked={props.Filteroption.includes("金屬")}></Checkbox>
-                        <label htmlFor="cbmetal" className="p-checkbox-label">金屬</label>
-
-                        <Checkbox style={chekboxsize} inputId="cbdesk" value="桌椅" onChange={props.onCheckboxChanges} checked={props.Filteroption.includes("桌椅")}></Checkbox>
-                        <label htmlFor="cbdesk" className="p-checkbox-label">桌椅</label>
-
-                        <Checkbox style={chekboxsize} inputId="cb3c" value="3C產品" onChange={props.onCheckboxChanges} checked={props.Filteroption.includes("3C產品")}></Checkbox>
-                        <label htmlFor="cb3c" className="p-checkbox-label">3C產品</label>
+                        <GenerateCheckBox callback={props.onCheckboxChanges} Filteroption={props.Filteroption} />
                     </div>
                     <div className="sidebar-title">
                         <div className="sidebar-text">優質商家</div>
@@ -65,11 +79,10 @@ const Sidebar = (props) => {
                         <Checkbox style={chekboxsize} inputId="cbgoodstore" value="優質商家" onChange={props.onCheckboxChanges} checked={props.Filteroption.includes("優質商家")}></Checkbox>
                         <label htmlFor="cbgoodstore" className="p-checkbox-label" style={{marginLeft:'10px'}}>優質商家</label>
                     </div>
-                    <div className="sidebar-title" style={{display:'flex',justifyContent:'right'}}>
+                    <div className="sidebar-title searchbutton-position">
                         <Button label='搜尋' onClick={onTriggerChange} />
                     </div>
                 </div>
-                
             </div>
         </>
     )
