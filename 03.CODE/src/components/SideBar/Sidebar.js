@@ -23,10 +23,10 @@ const GenerateCheckBox = (props)=>{
     }]
     return FilterArray.map(element=>{
         return(
-            <>
-            <Checkbox id='checkbox-size' inputId={element.ID} value={element.value} onChange={props.callback} checked={props.Filteroption.includes(element.value)}></Checkbox>
-            <label htmlFor={element.ID} className="p-checkbox-label">{element.value}</label>
-            </>
+            <React.Fragment key={element.ID}>
+                <Checkbox id='checkbox-size' inputId={element.ID} value={element.value} onChange={props.callback} checked={props.Filteroption.includes(element.value)}></Checkbox>
+                <label htmlFor={element.ID} className="p-checkbox-label">{element.value}</label>
+            </React.Fragment>
         )
     })
 
@@ -50,8 +50,8 @@ const Sidebar = (props) => {
         transform:'scale(1.5)'
     }
 
-    const barbuttontrigger = `sidebar-trigger ${props.SidebarState!=="Init" && (props.SidebarState ? 'sidebar-triggered' : 'sidebar-nottriggered')}`
-    const barpaneltrigger = `sidebar ${props.SidebarState!=="Init" && (props.SidebarState ? 'sidebar-triggered' : 'sidebar-nottriggered')}`
+    const barbuttontrigger = `sidebar-trigger ${props.SidebarState!=="Init" ? (props.SidebarState ? 'sidebar-triggered' : 'sidebar-nottriggered') : ''}`
+    const barpaneltrigger = `sidebar ${props.SidebarState!=="Init" ?  (props.SidebarState ? 'sidebar-triggered' : 'sidebar-nottriggered') : ''}`
     return (
         <>
             <div className={barbuttontrigger} onClick={onTriggerChange} >

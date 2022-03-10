@@ -52,7 +52,7 @@ const Cardgenerate=(props)=>{
                 </div>
                 <div id="goodmark-and-tooltip">
                     <img src={goodmark} alt='goodmark' hidden={element.goodstore ? '' : 'hide'} />
-                    <div id='tooltip-for-goodstoremark' className={!element.goodstore && 'display-none'} >商品認證</div>
+                    <div id='tooltip-for-goodstoremark' className={!element.goodstore ? '' : 'display-none'} >商品認證</div>
                 </div>
                 <button className="purchase-button" id={element.id} onClick={props.onClick}>購買</button>
             </div>

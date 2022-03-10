@@ -1,9 +1,39 @@
-import React from "react";
+import React ,{useState} from "react";
 import './Infocard.scss'
 import backarrow from '../../imgs/Backarrow.png'
 import GoodStoremark from '../../imgs/GoodStoreMark.png'
 import followheart from '../../imgs/addfollow.png'
 
+
+const InfocardImageView = ()=>{
+    const imagearray = Array(4).fill(0).map((_,index)=>{return index.toString()})
+    const [Bigimage , setBigimage] = useState(imagearray[0])
+
+
+    const onItemClick = (e)=>{
+        setBigimage(e.target.id)
+    }
+
+    return(
+        <>
+            <div id="imageview-left-div">
+                {imagearray.map(element=>{
+                    return (
+                        Bigimage.indexOf(element)===-1 && 
+                            <div key={element} id={element} className='imageview-left-item' onClick={onItemClick}>
+                                {element}
+                            </div>
+                        )
+                })}
+            </div>
+            <div id="imageview-right-div">
+                <div id="imageview-right-item">
+                    {Bigimage}
+                </div>
+            </div>
+        </>
+    )
+}
 
 const Infocardgenerate = (props) => {
     const Infos = props.Info[0]
@@ -37,7 +67,7 @@ const Infocardgenerate = (props) => {
                 </div>
             </div>
             <div id='image-preview'>
-                圖片
+                <InfocardImageView />
             </div>
             <div id='price-and-purchase'>
                 <div id='price'>

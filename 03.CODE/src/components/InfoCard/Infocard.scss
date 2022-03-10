@@ -110,10 +110,39 @@
     #image-preview{
         width: 100%;
         height: 40%;
-        background-color: cadetblue;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        flex-wrap: wrap;
+        #imageview-left-div{
+            width: 30%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            .imageview-left-item{
+                width: 90%;
+                height: 30%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid;
+            }
+
+        }
+        #imageview-right-div{
+            width: 70%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            #imageview-right-item{
+                width: 90%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid;
+            }
+        }
     }
     #price-and-purchase{
         width: 100%;
@@ -224,3 +253,4 @@
         }
     }
 }
+
