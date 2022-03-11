@@ -4,8 +4,8 @@ import GetData from "../GetData";
 
 /*
 --props 
-popoff - function to close window
-popid - id for finding object from getdata()
+popoff - GreenMatchList.Callpopoff from Mathchconfirm
+popid - GreenMatchList.PopupID  from Matchconfirm
 */
 const MatchconfirmPop = (props)=>{
     // find object using popid 
@@ -79,10 +79,10 @@ const MatchconfirmPop = (props)=>{
 
 /*
 --props 
-enable - boolean
-popup - function to open window 
-popoff - function to close window 
-popid - id for finding object from getdata()
+enable - GreenMatchList.Popup
+popup - GreenMatchList.Callpopup
+popoff - GreenMatchList.Callpopoff
+popid - GreenMatchList.PopupID
 */
 const Matchconfirm = (props)=>{
     if(props.enable){

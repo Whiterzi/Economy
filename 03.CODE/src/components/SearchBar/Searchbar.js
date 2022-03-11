@@ -3,7 +3,7 @@ import { InputText } from 'primereact/inputtext';
 
 /*
 --props
-hook [Searchvalue, onSearching] = [value , onSearching]
+[Searchvalue, onSearching] = [value , onSearching] from GreenMatchList
 */
 const Searchbar = (Search) => {
     return (

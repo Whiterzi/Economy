@@ -7,7 +7,10 @@ import { Button } from 'primereact/button';
  
 
 
-//props - filteroption , callback:onCheckboxChanges
+/*
+Filteroption - GreenMatchList.Filteroption from Sidebar
+onCheckboxChanges - GreenMatchList.onCheckboxChanges from Sidebar
+*/
 const GenerateCheckBox = (props)=>{
     const FilterArray = [{
         ID:'chwood',
@@ -34,10 +37,10 @@ const GenerateCheckBox = (props)=>{
 }
 /*
 --props
-SidebarState - state of switching on/off
-setSidebarState - callback to switch on/off
-Filteroption - array to make chosen filter checked
-onCheckboxChanges - callback to return chosen filter
+SidebarState - GreenMatchList.SidebarState
+setSidebarState - GreenMatchList.setSidebarState
+Filteroption - GreenMatchList.Filteroption
+onCheckboxChanges - GreenMatchList.onCheckboxChanges
 */
 
 const Sidebar = (props) => {

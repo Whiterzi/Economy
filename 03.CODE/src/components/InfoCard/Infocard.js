@@ -6,7 +6,6 @@ import followheart from '../../imgs/addfollow.png'
 
 // imgset
 const InfocardImageView = ()=>{
-    // const imagearray = Array(4).fill(0).map((_,index)=>{return index.toString()})
     const imgset = useContext(Imgprovider)
     const [Bigimage , setBigimage] = useState(imgset[0])
     const onItemClick = (e)=>{
@@ -30,7 +29,7 @@ const InfocardImageView = ()=>{
         </>
     )
 }
-
+// onback={Scrollcard.InfocardBackEvent} ,Info={Scrollcard.InfObject} popup={GreenMatchList.Callpopup}
 const Infocardgenerate = (props) => {
     const Infos = props.Info[0]
     return (
@@ -117,6 +116,7 @@ const Infocardgenerate = (props) => {
     )
 }
 const Imgprovider=createContext()
+// ImgList={Scrollcar.ImgList}, InfObject={Scrollcard.InfObject}, onBack={Scrollcard.InfocardBackEvent}, popup={GreenMatchList.popup}
 const Infocard = (props) => {
     return(
         <Imgprovider.Provider value={props.ImgList}>

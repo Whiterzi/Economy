@@ -3,7 +3,7 @@ import './Filterchips.scss'
 import deletbutton from '../../imgs/metro-cross.png'
 
 
-
+// props from Filterchips
 const Chipsgenerate = (props) =>{
     return (
         <div id='chips'>
@@ -18,8 +18,8 @@ const Chipsgenerate = (props) =>{
 }
 /* 
 --props
-Filteroption - Array to store selected filter
-onItemDelete - function to delete filter from filteroption
+Filteroption - GreenMatchList.Filteroption
+onItemDelete - GreenMatchList.onItemDelete
 */
 const Filterchips = (props)=>{
     return props.Filteroption.map(element=>{

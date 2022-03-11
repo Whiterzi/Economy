@@ -26,6 +26,7 @@ const Filtedlist = ()=>{
 
 
 const Imgprovider = createContext();
+// ButtonEvent={Scrollcard.PurchaseButtonEvent} ,setImgList={Scrollcard.setImgList}
 const Cardgenerate=(props)=>{
     const content = Filtedlist()
     return content.map(element=>{
@@ -71,14 +72,14 @@ const Cardgenerate=(props)=>{
     })
 }
 
-// props- imgset : imgs[] from GetData
+// props- imgset : imgs[] from GetData 
 const ImageCarousel = ()=>{
     const imgset = Array.from(useContext(Imgprovider))
     const [Selectedimg , setSelectedimg] = useState(imgset[0])
     const onImgChange = (e)=>{
         setSelectedimg(e.target.id)
     }
-    // SelectedDot={Selectedimg} , onDotClick={onImgChange}
+    // SelectedDot={ImageCarousel.Selectedimg} , onDotClick={ImageCarousel.onImgChange}
     const GenetateNavigationDot = (props)=>{
         const SelectedDot = props.SelectedDot
         const onDotClick = props.onDotClick
@@ -90,7 +91,7 @@ const ImageCarousel = ()=>{
             )
         })
     }
-    // onArrowClick = {setSelectedimg} , CurrentImg = {SelectedImg}
+    // onArrowClick = {ImageCarousel.setSelectedimg} , CurrentImg = {ImageCarousel.SelectedImg}
     const GenerateCarouselArrow = (props)=>{
         const onArrowPoint = (e)=>{
             const imgindex = imgset.indexOf(props.CurrentImg);
@@ -133,9 +134,9 @@ const ImageCarousel = ()=>{
 
 /*
 --props
-filter - Array for selected filters 
-keyword - string to filt item name
-popup - callback to pop confirm window
+filter - GreenMatchList.Filteroption 
+keyword - GreenMatchList.SearchValue
+popup - GreenMatchList.Callpopup
 */
 const Scrollcard = (props)=>{
     const [showlist , changeShowstate] = useState(true)

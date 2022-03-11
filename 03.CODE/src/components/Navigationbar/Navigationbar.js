@@ -5,7 +5,7 @@ import { useLocation , useNavigate} from "react-router-dom";
 
 
 
-const Navbar = (props) => {
+const Navbar = () => {
   const [navcolor, setnavcolor] = useState(false);
   const currentpath = useLocation().pathname
   const blockclass = `navbarrightblock ${currentpath === '/' && 'blockborder'} ${navcolor && 'textwhite' }`
