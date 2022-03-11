@@ -125,7 +125,8 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                border: 1px solid;
+                // border: 1px solid;
+                overflow: hidden;
             }
 
         }
@@ -135,12 +136,17 @@
             display: flex;
             justify-content: center;
             #imageview-right-item{
-                width: 90%;
-                height: 100%;
+                // width: 90%;
+                // height: 100%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                border: 1px solid;
+                // border: 1px solid;
+                img{
+                    overflow: hidden;
+                    max-width: 90%;
+                    max-height: 100%;
+                }
             }
         }
     }

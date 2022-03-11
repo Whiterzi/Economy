@@ -9,7 +9,7 @@ const itemlist = [{
     state :  'great',
     postdate : '2021/2/25',
     price : 50000,
-    imgs : ['img1.jpg','img2.jpg'],
+    imgs : ['img1.jpeg','img2.png','img3.jpeg','img4.jpg'],
     goodstore : true
 },{
     id : '002',
@@ -20,7 +20,7 @@ const itemlist = [{
     state :  'great',
     postdate : '2021/2/25',
     price : 2000,
-    imgs : ['img1.jpg','img2.jpg'],
+    imgs : ['img1.jpeg','img2.png'],
     goodstore : false
 },{
     id : '003',
@@ -31,7 +31,7 @@ const itemlist = [{
     state :  'great',
     postdate : '2021/2/25',
     price : 500,
-    imgs : ['img1.jpg','img2.jpg'],
+    imgs : ['img1.jpeg','img2.png','img3.jpeg','img4.jpg'],
     goodstore : true
 },{
     id : '004',
@@ -42,7 +42,7 @@ const itemlist = [{
     state :  'great',
     postdate : '2021/2/25',
     price : 150000,
-    imgs : ['img1.jpg','img2.jpg'],
+    imgs : ['img1.jpeg','img2.png','img3.jpeg','img4.jpg'],
     goodstore : true
 },{
     id : '005',
@@ -53,7 +53,7 @@ const itemlist = [{
     state :  'great',
     postdate : '2021/2/25',
     price : 50000,
-    imgs : ['img1.jpg','img2.jpg'],
+    imgs : ['img1.jpeg','img2.png','img3.jpeg','img4.jpg'],
     goodstore : false
 },{
     id : '006',
@@ -64,7 +64,7 @@ const itemlist = [{
     state :  'great',
     postdate : '2021/2/25',
     price : 350000,
-    imgs : ['img1.jpg','img2.jpg'],
+    imgs : ['img1.jpeg','img2.png','img3.jpeg','img4.jpg'],
     goodstore : false
 },{
     id : '007',
@@ -75,7 +75,7 @@ const itemlist = [{
     state :  'great',
     postdate : '2021/2/25',
     price : 4000,
-    imgs : ['img1.jpg','img2.jpg'],
+    imgs : ['img1.jpeg','img2.png','img3.jpeg','img4.jpg'],
     goodstore : false
 },{
     id : '008',
@@ -86,7 +86,7 @@ const itemlist = [{
     state :  'great',
     postdate : '2021/2/25',
     price : 90,
-    imgs : ['img1.jpg','img2.jpg'],
+    imgs : ['img1.jpeg','img2.png','img3.jpeg','img4.jpg'],
     goodstore : false
 }
 ]

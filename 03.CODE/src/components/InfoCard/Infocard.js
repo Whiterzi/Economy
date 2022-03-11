@@ -1,34 +1,30 @@
-import React ,{useState} from "react";
+import React ,{useState,createContext,useContext} from "react";
 import './Infocard.scss'
 import backarrow from '../../imgs/Backarrow.png'
 import GoodStoremark from '../../imgs/GoodStoreMark.png'
 import followheart from '../../imgs/addfollow.png'
 
-
+// imgset
 const InfocardImageView = ()=>{
-    const imagearray = Array(4).fill(0).map((_,index)=>{return index.toString()})
-    const [Bigimage , setBigimage] = useState(imagearray[0])
-
-
+    // const imagearray = Array(4).fill(0).map((_,index)=>{return index.toString()})
+    const imgset = useContext(Imgprovider)
+    const [Bigimage , setBigimage] = useState(imgset[0])
     const onItemClick = (e)=>{
         setBigimage(e.target.id)
     }
-
     return(
         <>
             <div id="imageview-left-div">
-                {imagearray.map(element=>{
+                {imgset.map(element=>{
                     return (
                         Bigimage.indexOf(element)===-1 && 
-                            <div key={element} id={element} className='imageview-left-item' onClick={onItemClick}>
-                                {element}
-                            </div>
+                                <img id={element} alt='img' src={require(`../../imgs/${element}`)} onClick={onItemClick} className='imageview-left-item' />
                         )
                 })}
             </div>
             <div id="imageview-right-div">
                 <div id="imageview-right-item">
-                    {Bigimage}
+                    <img id={Bigimage} alt='img' src={require(`../../imgs/${Bigimage}`)} />
                 </div>
             </div>
         </>
@@ -120,12 +116,12 @@ const Infocardgenerate = (props) => {
         </div>
     )
 }
-
+const Imgprovider=createContext()
 const Infocard = (props) => {
-
-
     return(
-        <Infocardgenerate onback={props.onBack} Info={props.InfObject} popup={props.popup} /> 
+        <Imgprovider.Provider value={props.ImgList}>
+            <Infocardgenerate onback={props.onBack} Info={props.InfObject} popup={props.popup} /> 
+        </Imgprovider.Provider>
     )
 
 }

@@ -1,4 +1,4 @@
-import React , {useState} from "react";
+import React , {useState ,createContext} from "react";
 import './GreenMatchList.component.scss';
 import Searchbar from "../../components/SearchBar/Searchbar";
 import DivSwitch from "../../components/DivSwitch/Divswitch";
@@ -15,6 +15,7 @@ const GreenMatchList = ()=>{
     const [Popup , setPopup] =useState(false);
     const [PopupID , setPopupID] =useState();
     const [Searchvalue , onSearching] = useState('');
+    
 
     const openSidebar = ()=>{
         setSidebarState(!SidebarState)
@@ -42,6 +43,7 @@ const GreenMatchList = ()=>{
     const CallPopoff = ()=>{
         setPopup(false)
     }
+
 
     return( 
         <>
@@ -80,9 +82,11 @@ const GreenMatchList = ()=>{
                     <div id="frame-body-container">
                         <div id="frame-body-map"></div>
                         <div id="frame-body-list">
-                            <ScrollPanel id="scrollpanel">
-                                <Scrollcard filter={Filteroption} keyword={Searchvalue} popup={Callpopup} />
-                            </ScrollPanel>
+                            <SearchingFilter.Provider value={[Filteroption,Searchvalue]}>
+                                <ScrollPanel id="scrollpanel">
+                                    <Scrollcard popup={Callpopup} />
+                                </ScrollPanel>
+                            </SearchingFilter.Provider>
                         </div>
                     </div>
                 </div>
@@ -92,7 +96,7 @@ const GreenMatchList = ()=>{
     )
 }
 
+export const SearchingFilter = createContext();
 
 
-
-export default GreenMatchList;;
+export default GreenMatchList;

@@ -1,14 +1,14 @@
-import React ,{useState} from "react";
+import React ,{useState ,useContext,createContext} from "react";
 import goodmark from '../../imgs/goodmark.png'
 import './Scrollcard.scss'
 import Infocard from "../InfoCard/Infocard";
 import GetData from "../GetData";
+import { SearchingFilter } from '../../pages/GreenMatchList/GreenMatchList.component'
 
-
-const filtedlist = (filteroption,keyword)=>{
+const Filtedlist = ()=>{
     let tempList = GetData().slice()
     let resultlist = []
-    let filter = filteroption
+    const [filter,keyword] = useContext(SearchingFilter)
     const isItgoodstore = filter.includes('優質商家');
     resultlist = tempList.filter(element=>{
         return (
@@ -24,11 +24,22 @@ const filtedlist = (filteroption,keyword)=>{
     return resultlist
 }
 
+
+const Imgprovider = createContext();
 const Cardgenerate=(props)=>{
-    return props.content.map(element=>{
+    const content = Filtedlist()
+    return content.map(element=>{
+        const onPurchaseClick=(e)=>{
+            props.setImgList(element.imgs)
+            props.ButtonEvent(e)
+        }
         return(
             <div id='body-list-card' key={element.id}>
-                <div id='img-for-preview'></div>
+                <div id='img-for-preview'>
+                    <Imgprovider.Provider value={element.imgs}>
+                        <ImageCarousel/>
+                    </Imgprovider.Provider>
+                </div>
                 <div id='item-describe-text'>
                     <div id='rowname'>
                         <p>名稱</p>
@@ -52,13 +63,72 @@ const Cardgenerate=(props)=>{
                 </div>
                 <div id="goodmark-and-tooltip">
                     <img src={goodmark} alt='goodmark' hidden={element.goodstore ? '' : 'hide'} />
-                    <div id='tooltip-for-goodstoremark' className={!element.goodstore ? '' : 'display-none'} >商品認證</div>
+                    <div id='tooltip-for-goodstoremark' className={element.goodstore ? '' : 'display-none'} >商品認證</div>
                 </div>
-                <button className="purchase-button" id={element.id} onClick={props.onClick}>購買</button>
+                <button className="purchase-button" id={element.id} onClick={onPurchaseClick}>購買</button>
             </div>
         )
     })
 }
+
+// props- imgset : imgs[] from GetData
+const ImageCarousel = ()=>{
+    const imgset = Array.from(useContext(Imgprovider))
+    const [Selectedimg , setSelectedimg] = useState(imgset[0])
+    const onImgChange = (e)=>{
+        setSelectedimg(e.target.id)
+    }
+    // SelectedDot={Selectedimg} , onDotClick={onImgChange}
+    const GenetateNavigationDot = (props)=>{
+        const SelectedDot = props.SelectedDot
+        const onDotClick = props.onDotClick
+        return imgset.map(v=>{
+            return(
+                <div className="carousel-dot" key={v}>
+                    <div id={v} onClick={onDotClick} className={`dot-circle-active ${v===SelectedDot?'dot-circle-selected':null}`} />
+                </div>
+            )
+        })
+    }
+    // onArrowClick = {setSelectedimg} , CurrentImg = {SelectedImg}
+    const GenerateCarouselArrow = (props)=>{
+        const onArrowPoint = (e)=>{
+            const imgindex = imgset.indexOf(props.CurrentImg);
+            switch(e.target.id){
+                case "R":
+                    imgindex===imgset.length-1 ? props.setCurrenImg(imgset[0]) : props.setCurrenImg(imgset[imgindex+1]);
+                    break;  
+                case "L":
+                    imgindex===0 ? props.setCurrenImg(imgset[imgset.length-1]) : props.setCurrenImg(imgset[imgindex-1]);
+                    break;
+                default :
+                    break;
+            }
+        }
+        return(
+            <>
+                <div className="carousel-arrow arrow-left" onClick={onArrowPoint} id='L'>
+                    {'<'}
+                </div>
+                <div className="carousel-arrow arrow-right" onClick={onArrowPoint} id='R'>
+                    {'>'}
+                </div>
+            </>
+        )
+    }
+    return(
+        <>
+            <img alt="img" className="imgbox" src={require(`../../imgs/${Selectedimg}`)} />
+            <div id='carousel-container'>
+                <div id='carousel-dot-container'>
+                    <GenetateNavigationDot SelectedDot={Selectedimg} onDotClick={onImgChange} />
+                </div>
+                <GenerateCarouselArrow CurrentImg={Selectedimg} setCurrenImg={setSelectedimg} />
+            </div>
+        </>
+    )
+}
+
 
 
 /*
@@ -70,8 +140,7 @@ popup - callback to pop confirm window
 const Scrollcard = (props)=>{
     const [showlist , changeShowstate] = useState(true)
     const [InfObject , setInfObject] = useState([])
-    const Filters = props.filter
-    const keyword = props.keyword
+    const [ImgList, setImgList] = useState([])
     const PurchaseButtonEvent = (e)=>{
         setInfObject(GetData().filter(element=>element.id===e.target.id))
         changeShowstate(false)
@@ -80,8 +149,9 @@ const Scrollcard = (props)=>{
         changeShowstate(true)
     }
     return (
-        showlist ? <Cardgenerate content={filtedlist(Filters,keyword)} onClick={PurchaseButtonEvent}  /> : <Infocard InfObject={InfObject} onBack={InfocardBackEvent} popup={props.popup} />
+        showlist ? <Cardgenerate ButtonEvent={PurchaseButtonEvent} setImgList={setImgList}  /> : <Infocard ImgList={ImgList} InfObject={InfObject} onBack={InfocardBackEvent} popup={props.popup} />
     )
 }
+
 
 export default Scrollcard;
