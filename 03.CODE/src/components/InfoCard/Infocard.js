@@ -1,24 +1,24 @@
-import React ,{useState,createContext,useContext} from "react";
+import React, { useState, createContext, useContext } from "react";
 import './Infocard.scss'
 import backarrow from '../../imgs/Backarrow.png'
 import GoodStoremark from '../../imgs/GoodStoreMark.png'
 import followheart from '../../imgs/addfollow.png'
 
 // imgset
-const InfocardImageView = ()=>{
+const InfocardImageView = () => {
     const imgset = useContext(Imgprovider)
-    const [Bigimage , setBigimage] = useState(imgset[0])
-    const onItemClick = (e)=>{
+    const [Bigimage, setBigimage] = useState(imgset[0])
+    const onItemClick = (e) => {
         setBigimage(e.target.id)
     }
-    return(
+    return (
         <>
             <div id="imageview-left-div">
-                {imgset.map(element=>{
+                {imgset.map(element => {
                     return (
-                        Bigimage.indexOf(element)===-1 && 
-                                <img id={element} alt='img' src={require(`../../imgs/${element}`)} onClick={onItemClick} className='imageview-left-item' />
-                        )
+                        Bigimage.indexOf(element) === -1 &&
+                        <img id={element} alt='img' src={require(`../../imgs/${element}`)} onClick={onItemClick} className='imageview-left-item' />
+                    )
                 })}
             </div>
             <div id="imageview-right-div">
@@ -46,7 +46,7 @@ const Infocardgenerate = (props) => {
                     <div id='item-type'>
                         {Infos.type}
                     </div>
-                    <img src={GoodStoremark} alt='goodstoremark' id={Infos.goodstore?'good-store-mark':'good-store-mark-hidden'} />
+                    <img src={GoodStoremark} alt='goodstoremark' id={Infos.goodstore ? 'good-store-mark' : 'good-store-mark-hidden'} />
                 </div>
                 <div id='header-id'>
                     編號：{Infos.id}
@@ -90,7 +90,7 @@ const Infocardgenerate = (props) => {
                             基本資訊
                         </div>
                         <div id='basic-info-description'>
-                            <p>● 賣方 {}</p>
+                            <p>● 賣方 { }</p>
                             <p>● 上架日期 {Infos.postdate}</p>
                             <p>● 物品所在地 {Infos.location}</p>
                         </div>
@@ -104,7 +104,7 @@ const Infocardgenerate = (props) => {
                         <p>● 尺寸(長*寬*高)：{Infos.size}</p>
                         <p>● 總重：{Infos.size}</p>
                         <p>● 狀態：{Infos.state}</p>
-                        <p>● 規格詳述：{}</p>
+                        <p>● 規格詳述：{ }</p>
                         <button id='asking-button'>
                             我要問賣家
                         </button>
@@ -115,12 +115,12 @@ const Infocardgenerate = (props) => {
         </div>
     )
 }
-const Imgprovider=createContext()
+const Imgprovider = createContext()
 // ImgList={Scrollcar.ImgList}, InfObject={Scrollcard.InfObject}, onBack={Scrollcard.InfocardBackEvent}, popup={GreenMatchList.popup}
 const Infocard = (props) => {
-    return(
+    return (
         <Imgprovider.Provider value={props.ImgList}>
-            <Infocardgenerate onback={props.onBack} Info={props.InfObject} popup={props.popup} /> 
+            <Infocardgenerate onback={props.onBack} Info={props.InfObject} popup={props.popup} />
         </Imgprovider.Provider>
     )
 

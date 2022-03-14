@@ -1,23 +1,23 @@
-import React ,{useState ,useContext,createContext} from "react";
+import React, { useState, useContext, createContext } from "react";
 import goodmark from '../../imgs/goodmark.png'
 import './Scrollcard.scss'
 import Infocard from "../InfoCard/Infocard";
 import GetData from "../GetData";
 import { SearchingFilter } from '../../pages/GreenMatchList/GreenMatchList.component'
 
-const Filtedlist = ()=>{
+const Filtedlist = () => {
     let tempList = GetData().slice()
     let resultlist = []
-    const [filter,keyword] = useContext(SearchingFilter)
+    const [filter, keyword] = useContext(SearchingFilter)
     const isItgoodstore = filter.includes('優質商家');
-    resultlist = tempList.filter(element=>{
+    resultlist = tempList.filter(element => {
         return (
-            filter.includes(element.type) && (!isItgoodstore || element.goodstore===isItgoodstore)
+            filter.includes(element.type) && (!isItgoodstore || element.goodstore === isItgoodstore)
         )
     })
-    resultlist.length===0 && (isItgoodstore ? resultlist = tempList.filter(element=>element.goodstore) : resultlist = tempList)
-    resultlist = resultlist.filter(element=>{
-        return(
+    resultlist.length === 0 && (isItgoodstore ? resultlist = tempList.filter(element => element.goodstore) : resultlist = tempList)
+    resultlist = resultlist.filter(element => {
+        return (
             element.name.includes(keyword)
         )
     })
@@ -27,18 +27,18 @@ const Filtedlist = ()=>{
 
 const Imgprovider = createContext();
 // ButtonEvent={Scrollcard.PurchaseButtonEvent} ,setImgList={Scrollcard.setImgList}
-const Cardgenerate=(props)=>{
+const Cardgenerate = (props) => {
     const content = Filtedlist()
-    return content.map(element=>{
-        const onPurchaseClick=(e)=>{
+    return content.map(element => {
+        const onPurchaseClick = (e) => {
             props.setImgList(element.imgs)
             props.ButtonEvent(e)
         }
-        return(
+        return (
             <div id='body-list-card' key={element.id}>
                 <div id='img-for-preview'>
                     <Imgprovider.Provider value={element.imgs}>
-                        <ImageCarousel/>
+                        <ImageCarousel />
                     </Imgprovider.Provider>
                 </div>
                 <div id='item-describe-text'>
@@ -46,7 +46,7 @@ const Cardgenerate=(props)=>{
                         <p>名稱</p>
                         <p>貨物地點</p>
                         <p>種類</p>
-                        <p>尺寸<font style={{fontSize:'12px'}}>(W*H*D)</font></p>
+                        <p>尺寸<font style={{ fontSize: '12px' }}>(W*H*D)</font></p>
                         <p>貨物狀況</p>
                         <p>上架日期</p>
                         <p id='price'>價格</p>
@@ -60,7 +60,7 @@ const Cardgenerate=(props)=>{
                         <p>{element.postdate}</p>
                         <p id='price'>${element.price}</p>
                     </div>
-                    
+
                 </div>
                 <div id="goodmark-and-tooltip">
                     <img src={goodmark} alt='goodmark' hidden={element.goodstore ? '' : 'hide'} />
@@ -73,40 +73,40 @@ const Cardgenerate=(props)=>{
 }
 
 // props- imgset : imgs[] from GetData 
-const ImageCarousel = ()=>{
+const ImageCarousel = () => {
     const imgset = Array.from(useContext(Imgprovider))
-    const [Selectedimg , setSelectedimg] = useState(imgset[0])
-    const onImgChange = (e)=>{
+    const [Selectedimg, setSelectedimg] = useState(imgset[0])
+    const onImgChange = (e) => {
         setSelectedimg(e.target.id)
     }
     // SelectedDot={ImageCarousel.Selectedimg} , onDotClick={ImageCarousel.onImgChange}
-    const GenetateNavigationDot = (props)=>{
+    const GenetateNavigationDot = (props) => {
         const SelectedDot = props.SelectedDot
         const onDotClick = props.onDotClick
-        return imgset.map(v=>{
-            return(
+        return imgset.map(v => {
+            return (
                 <div className="carousel-dot" key={v}>
-                    <div id={v} onClick={onDotClick} className={`dot-circle-active ${v===SelectedDot?'dot-circle-selected':null}`} />
+                    <div id={v} onClick={onDotClick} className={`dot-circle-active ${v === SelectedDot ? 'dot-circle-selected' : null}`} />
                 </div>
             )
         })
     }
     // onArrowClick = {ImageCarousel.setSelectedimg} , CurrentImg = {ImageCarousel.SelectedImg}
-    const GenerateCarouselArrow = (props)=>{
-        const onArrowPoint = (e)=>{
+    const GenerateCarouselArrow = (props) => {
+        const onArrowPoint = (e) => {
             const imgindex = imgset.indexOf(props.CurrentImg);
-            switch(e.target.id){
+            switch (e.target.id) {
                 case "R":
-                    imgindex===imgset.length-1 ? props.setCurrenImg(imgset[0]) : props.setCurrenImg(imgset[imgindex+1]);
-                    break;  
-                case "L":
-                    imgindex===0 ? props.setCurrenImg(imgset[imgset.length-1]) : props.setCurrenImg(imgset[imgindex-1]);
+                    imgindex === imgset.length - 1 ? props.setCurrenImg(imgset[0]) : props.setCurrenImg(imgset[imgindex + 1]);
                     break;
-                default :
+                case "L":
+                    imgindex === 0 ? props.setCurrenImg(imgset[imgset.length - 1]) : props.setCurrenImg(imgset[imgindex - 1]);
+                    break;
+                default:
                     break;
             }
         }
-        return(
+        return (
             <>
                 <div className="carousel-arrow arrow-left" onClick={onArrowPoint} id='L'>
                     {'<'}
@@ -117,7 +117,7 @@ const ImageCarousel = ()=>{
             </>
         )
     }
-    return(
+    return (
         <>
             <img alt="img" className="imgbox" src={require(`../../imgs/${Selectedimg}`)} />
             <div id='carousel-container'>
@@ -138,19 +138,19 @@ filter - GreenMatchList.Filteroption
 keyword - GreenMatchList.SearchValue
 popup - GreenMatchList.Callpopup
 */
-const Scrollcard = (props)=>{
-    const [showlist , changeShowstate] = useState(true)
-    const [InfObject , setInfObject] = useState([])
+const Scrollcard = (props) => {
+    const [showlist, changeShowstate] = useState(true)
+    const [InfObject, setInfObject] = useState([])
     const [ImgList, setImgList] = useState([])
-    const PurchaseButtonEvent = (e)=>{
-        setInfObject(GetData().filter(element=>element.id===e.target.id))
+    const PurchaseButtonEvent = (e) => {
+        setInfObject(GetData().filter(element => element.id === e.target.id))
         changeShowstate(false)
     }
-    const InfocardBackEvent = ()=>{
+    const InfocardBackEvent = () => {
         changeShowstate(true)
     }
     return (
-        showlist ? <Cardgenerate ButtonEvent={PurchaseButtonEvent} setImgList={setImgList}  /> : <Infocard ImgList={ImgList} InfObject={InfObject} onBack={InfocardBackEvent} popup={props.popup} />
+        showlist ? <Cardgenerate ButtonEvent={PurchaseButtonEvent} setImgList={setImgList} /> : <Infocard ImgList={ImgList} InfObject={InfObject} onBack={InfocardBackEvent} popup={props.popup} />
     )
 }
 

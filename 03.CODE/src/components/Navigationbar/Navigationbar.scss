@@ -1,4 +1,4 @@
-#Navbar {
+#navbar {
   /* background-color: aqua; */
   position: fixed;
   width: 100%;
@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     margin-left: 20px;
-    #NavbarlogoText {
+    #navbar-logo-text {
       margin-left: 1%;
     }
   }
@@ -23,12 +23,16 @@
     display: flex;
     justify-content: center;
     line-height: 40px;
-    .navbarrightblock {
+    .navbar-right-block {
       display: flex;
       width: 100%;
       text-align: center;
       justify-content: center;
       user-select: none;
+      
+    }
+    .navbar-right-block.textwhite{
+      color:white;
     }
     .blockborder {
       border-right: solid 1px;
@@ -37,7 +41,4 @@
 }
 .greenbackground{
   background-color: #B5CDA3;
-}
-.textwhite{
-  color:white;
 }

@@ -7,9 +7,9 @@ import GetData from "../GetData";
 popoff - GreenMatchList.Callpopoff from Mathchconfirm
 popid - GreenMatchList.PopupID  from Matchconfirm
 */
-const MatchconfirmPop = (props)=>{
+const MatchconfirmPop = (props) => {
     // find object using popid 
-    const datalist = (GetData().filter(element=>element.id===props.popid))[0]
+    const datalist = (GetData().filter(element => element.id === props.popid))[0]
 
     return (
         <div id="pop-window-base">
@@ -23,10 +23,10 @@ const MatchconfirmPop = (props)=>{
                             賣方
                         </div>
                         <div id='sale-content'>
-                            <p>公司名稱：{}</p>
-                            <p>聯絡窗口：{}</p>
-                            <p>聯絡方式：{}</p>
-                            <p>email：{}</p>
+                            <p>公司名稱：{ }</p>
+                            <p>聯絡窗口：{ }</p>
+                            <p>聯絡方式：{ }</p>
+                            <p>email：{ }</p>
                         </div>
                     </div>
                     <div id="buy">
@@ -34,10 +34,10 @@ const MatchconfirmPop = (props)=>{
                             買方
                         </div>
                         <div id='buy-content'>
-                            <p>公司名稱：{}</p>
-                            <p>聯絡窗口：{}</p>
-                            <p>聯絡方式：{}</p>
-                            <p>email：{}</p>
+                            <p>公司名稱：{ }</p>
+                            <p>聯絡窗口：{ }</p>
+                            <p>聯絡方式：{ }</p>
+                            <p>email：{ }</p>
                         </div>
                     </div>
                 </div>
@@ -56,9 +56,9 @@ const MatchconfirmPop = (props)=>{
                             </div>
                             <div id='spec-content'>
                                 <p>● 尺寸(長*寬*高)：{datalist.size}</p>
-                                <p>● 總重：{}</p>
+                                <p>● 總重：{ }</p>
                                 <p>● 狀態：{datalist.state}</p>
-                                <p>● 規格詳述：{}</p>
+                                <p>● 規格詳述：{ }</p>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@ const MatchconfirmPop = (props)=>{
             <div id='precautions'>
                 <p>注意事項：</p>
             </div>
-            
+
             <div id="background-square" />
             <button id='confirm-button' onClick={props.popoff}>
                 確定
@@ -84,14 +84,14 @@ popup - GreenMatchList.Callpopup
 popoff - GreenMatchList.Callpopoff
 popid - GreenMatchList.PopupID
 */
-const Matchconfirm = (props)=>{
-    if(props.enable){
+const Matchconfirm = (props) => {
+    if (props.enable) {
         return (
             <div id='matchconfirm-base' onClick={props.popoff}>
                 <MatchconfirmPop popoff={props.popoff} popid={props.popid} />
             </div>
         )
-    }else{
+    } else {
         return <></>
     }
 }

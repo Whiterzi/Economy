@@ -4,7 +4,7 @@ import deletbutton from '../../imgs/metro-cross.png'
 
 
 // props from Filterchips
-const Chipsgenerate = (props) =>{
+const Chipsgenerate = (props) => {
     return (
         <div id='chips'>
             <div id='chip-text'>
@@ -21,9 +21,9 @@ const Chipsgenerate = (props) =>{
 Filteroption - GreenMatchList.Filteroption
 onItemDelete - GreenMatchList.onItemDelete
 */
-const Filterchips = (props)=>{
-    return props.Filteroption.map(element=>{
-        return <Chipsgenerate itemname={element} key={element} props={props}/>
+const Filterchips = (props) => {
+    return props.Filteroption.map(element => {
+        return <Chipsgenerate itemname={element} key={element} props={props} />
     })
 }
 export default Filterchips
