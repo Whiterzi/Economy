@@ -1,42 +1,67 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import './Mainpage.scss';
+import part1back from '../../imgs/waters.png';
+import part2back from '../../imgs/Slice 1 (4) 1.png';
+import part3back from '../../imgs/Slice 1 (3) 1 (1).png';
+import part4back from "../../imgs/image 2.png";
 
 
 
 
 const MainPages = () => {
   return (
+    // <>
+    //     {/* water png */}
+    //     <div id="main01">
+    //       <img src={part1back} alt='0' />
+    //       {/* <div id="main01text">當永續行動成為生活中的一部份</div> */}
+    //       {/* <div id="vector5" />
+    //       <div id="vector7" /> */}
+    //     </div>
+    //     {/* Sustanability */}
+    //     <div id="main02">
+    //       <div id='sustainability' />
+    //       <div id="main02bar">
+    //       </div>
+    //     </div>
+
+    //   {/* How it works */}
+    //   <div style={{ height: '2789px' }} id='how-it-works'>
+    //     <div id="main03" />
+    //   </div>
+    //   {/* Contact Us */}
+    //   <div id="main4">
+    //     <div id='contact-us' />
+    //     <div id="main4img" />
+    //     <div style={{ display: 'flex', justifyContent: 'center' }}>
+    //       <ContactUS />
+    //     </div>
+    //   </div>
+    //   {/* buttom */}
+    //   
+    // </>
     <>
-      <div style={{ height: '5137.5px' }}>
-        {/* water png */}
-        <div id="main01">
-          <div id="main01text">當永續行動成為生活中的一部份</div>
-          <div id="vector5" />
-          <div id="vector7" />
-        </div>
-        {/* Sustanability */}
-        <div id="main02">
-          <div id='sustainability' />
-          <div id="main02bar">
-          </div>
-        </div>
+      <div id='main01'>
+        <img src={part1back} alt="" srcset="" />
+      </div>    
+      <div id='main02'>
+        <div id='sustainability' />
+        <div id="main02bar" />
+        <img src={part2back} alt=""/>
       </div>
-      {/* How it works */}
-      <div style={{ height: '2789px' }} id='how-it-works'>
-        <div id="main03" />
-      </div>
-      {/* Contact Us */}
+      <div id="main03">
+        <div id="how-it-works" />
+        <img src={part3back} alt="" srcset="" />
+        </div>
       <div id="main4">
         <div id='contact-us' />
-        <div id="main4img" />
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <ContactUS />
-        </div>
+        <img src={part4back} alt="" srcset="" />
+        <ContactUS />
       </div>
-      {/* buttom */}
-      <div style={{ width: '100%', height: '80px', background: '#C1AC95' }}></div>
+      <div id='page-bottom'/>
     </>
+
   )
 }
 
@@ -49,11 +74,13 @@ const ContactUS = () => {
       <div id="contact-subtitle">
         想了解什麼?
       </div>
-      <textarea className="textarea" placeholder='name' />
-      <textarea className="textarea" placeholder='company' />
-      <textarea className="textarea" placeholder='email address' />
-      <textarea className="textarea higher-textarea" placeholder='question' />
-      <button id='save-button'>SAVE</button>
+      <textarea id='tx-name' className="textarea" placeholder='name' />
+      <textarea id='tx-company' className="textarea" placeholder='company' />
+      <textarea id='tx-mail' className="textarea" placeholder='email address' />
+      <textarea id='tx-quest' className="textarea higher-textarea" placeholder='question' />
+      <div id='button-align'>
+        <button id='save-button'>SAVE</button>
+      </div>
     </div>
   )
 }

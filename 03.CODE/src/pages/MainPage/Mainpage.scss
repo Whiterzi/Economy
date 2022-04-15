@@ -18,140 +18,119 @@ code {
 
 
 #main01 {
-  /* waters-3236751_1920 1 */
-  width: 1920px;
-  height: 1157px;
-  left: 0px;
-  top: 0px;
-  background: url("../../imgs/waters-3236751_1920.png");
-  #main01text {
-    position: absolute;
-    width: 555px;
-    height: 52px;
-    left: 694px;
-    top: 930px;
-    font-family: Noto Serif TC;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 52px;
-    /* identical to box height */
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.1em;
-    color: #ffffff;
-  }
-
-  #vector5 {
-    /* Vector 5 */
-    position: relative;
-    width: 960px;
-    height: 200px;
-    left: 0px;
-    top: 957px;
-    clip-path: inset(1px);
-    background: url("../../imgs/Vector\ 5.png");
-  }
-
-  #vector7 {
-    /* Vector 7 */
-    position: absolute;
-    width: 960px;
-    height: 200px;
-    left: 960px;
-    top: 957px;
-    clip-path: inset(1px);
-    background: url("../../imgs/Vector\ 7.png");
+  position: relative;
+  display: flex;
+  grid-template-rows: repeat(12,1fr);
+  img{
+    grid-row: 1/13;
+    height:100%;
+    width:100%;
   }
 }
 
 #main02 {
-  position: absolute;
-  width: 1920px;
-  height: 4061px;
-  left: 0px;
-  top: 1076.5px;
-  z-index: 1;
-  background: url("../../imgs/Slice\ 1\ \(4\)\ 1.png");
+  display: flex;
+  img{
+    height: 100%;
+    width: 100%;
+  }
   #main02bar {
     /* Head */
-
     position: absolute;
     width: 1920px;
     height: 55px;
     left: 0px;
     top: 2383px;
-
     background: #000000;
   }
 }
-
 #main03 {
-  /* Slice 1 (3) 1 */
-  position: absolute;
-  width: 1920px;
-  height: 2789px;
-  left: 0px;
-
-  background: url("../../imgs/Slice\ 1\ \(3\)\ 1\ \(1\).png");
-}
-
-#main4 {
-  /* Frame 6 */
-
-  width: 1920px;
-  height: 2070px;
-
-  background: #ffffff;
-  #main4img {
-    width: 1920px;
-    height: 805px;
-    background: url("../../imgs/image\ 2.png");
+  display: flex;
+  img{
+    height: 100%;
+    width: 100%;
   }
 }
-
-
-
-#save-button{
-  margin-Top:20px;
-  margin-Left:150px;
-  width:150px;
-  height:80px;
-  text-Align:center;
-  vertical-Align:middle;
-  font-Size:30px;
-  background:#C1AC95;
-  border:none;
-  border-Radius:15px;
-  color:#FFF;
-  font-Weight:bold;
+#main4 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+#page-bottom{
+  width: 100%;
+  height: 80px;
+  background: #c1ac95;
 }
 
+
+
+
 #contact-main-frame{
-  width: 1000px;
-  margin-Top: 150px;
+  width: 60%;
+  height: 800px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  grid-template-rows: repeat(8,1fr);
+  gap: 20px;
+  display: grid;
+  justify-content: center;
   #contact-title{
-    width: 100%;
+    grid-row: 1;
     text-Align: center;
     font-Size: 50px;
   }
   #contact-subtitle{
-    width: 100%; 
+    grid-row: 2;
     text-Align: left;
     font-Size: 20px;
-    padding-Left: 150px;
     font-Family: bold;
     margin-Top: 50px;
   }
   .textarea{
     margin-Top:20px;
-    margin-Left:150px;
     width:730px;
     height:50px;
     padding:10px;
+    #tx-name{
+      grid-row: 3;
+    }
+    #tx-company{
+      grid-row: 4;
+    }
+    #tx-mail{
+      grid-row: 5;
+    }
+    #tx-quest{
+      grid-row: 6;
+    }
   }
   .higher-textarea{
     height: 150px;
+  }
+  #button-align{
+    grid-row: 7px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    #save-button{
+      grid-row: 7;
+      margin-Top:20px;
+      width:150px;
+      height:80px;
+      text-Align:center;
+      vertical-Align:middle;
+      align-items: center;
+      font-Size:30px;
+      background:#C1AC95;
+      border:none;
+      border-Radius:15px;
+      color:#FFF;
+      font-Weight:bold;
+    }
   }
 }
