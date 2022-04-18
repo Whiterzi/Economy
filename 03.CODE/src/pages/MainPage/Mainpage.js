@@ -11,52 +11,22 @@ import part4back from "../../imgs/image 2.png";
 
 const MainPages = () => {
   return (
-    // <>
-    //     {/* water png */}
-    //     <div id="main01">
-    //       <img src={part1back} alt='0' />
-    //       {/* <div id="main01text">當永續行動成為生活中的一部份</div> */}
-    //       {/* <div id="vector5" />
-    //       <div id="vector7" /> */}
-    //     </div>
-    //     {/* Sustanability */}
-    //     <div id="main02">
-    //       <div id='sustainability' />
-    //       <div id="main02bar">
-    //       </div>
-    //     </div>
-
-    //   {/* How it works */}
-    //   <div style={{ height: '2789px' }} id='how-it-works'>
-    //     <div id="main03" />
-    //   </div>
-    //   {/* Contact Us */}
-    //   <div id="main4">
-    //     <div id='contact-us' />
-    //     <div id="main4img" />
-    //     <div style={{ display: 'flex', justifyContent: 'center' }}>
-    //       <ContactUS />
-    //     </div>
-    //   </div>
-    //   {/* buttom */}
-    //   
-    // </>
     <>
       <div id='main01'>
-        <img src={part1back} alt="" srcset="" />
+        <img src={part1back} alt=""/>
       </div>    
       <div id='main02'>
         <div id='sustainability' />
-        <div id="main02bar" />
+        <div id="main02bar"/>
         <img src={part2back} alt=""/>
       </div>
       <div id="main03">
         <div id="how-it-works" />
-        <img src={part3back} alt="" srcset="" />
+        <img src={part3back} alt=""/>
         </div>
       <div id="main4">
         <div id='contact-us' />
-        <img src={part4back} alt="" srcset="" />
+        <img src={part4back} alt=""/>
         <ContactUS />
       </div>
       <div id='page-bottom'/>

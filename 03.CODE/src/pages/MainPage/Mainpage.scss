@@ -30,18 +30,16 @@ code {
 
 #main02 {
   display: flex;
+  height: max-content;
+  width: 100%;
+  position: relative;
   img{
     height: 100%;
     width: 100%;
   }
   #main02bar {
-    /* Head */
+    top: 0;
     position: absolute;
-    width: 1920px;
-    height: 55px;
-    left: 0px;
-    top: 2383px;
-    background: #000000;
   }
 }
 #main03 {
