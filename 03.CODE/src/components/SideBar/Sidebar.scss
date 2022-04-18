@@ -20,11 +20,11 @@ $sidecolor: #faebe0;
 
 .sidebar {
     position: absolute;
-    left: -500px;
+    left: -400px;
     margin-top: 2px;
     background-color: $sidecolor;
-    height: 85vh;
-    width: 500px;
+    height: 650px;
+    width: 400px;
     animation-duration: 1s;
     display: flex;
     justify-content: center;
@@ -54,7 +54,7 @@ $sidecolor: #faebe0;
         }
         label {
             color: gray;
-            font-size: 20px;
+            font-size: 16px;
             line-height: 100%;
         }
         #sidebar-great-store {
@@ -66,7 +66,7 @@ $sidecolor: #faebe0;
 }
 .sidebar-text {
     color: gray;
-    font-size: 25px;
+    font-size: 16px;
 }
 
 .sidebar-triggered {
@@ -75,7 +75,7 @@ $sidecolor: #faebe0;
     animation-direction: reverse;
 }
 .sidebar-nottriggered {
-    transform: translate(500px);
+    transform: translate(400px);
     animation-name: pushin;
     animation-direction: reverse;
 }
@@ -91,12 +91,12 @@ $sidecolor: #faebe0;
         transform: translate(0px);
     }
     100% {
-        transform: translate(500px);
+        transform: translate(400px);
     }
 }
 @keyframes pushin {
     0% {
-        transform: translate(500px);
+        transform: translate(400px);
     }
     100% {
         transform: translate(0px);

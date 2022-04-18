@@ -2,7 +2,7 @@
     background: rgba(0, 0, 0,0.52);
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 800px;
     z-index: 20;
     display: flex;
     justify-content: center;
@@ -23,7 +23,7 @@
         animation-duration: 1s;
         #confirm-title{
             width: 100%;
-            font-size: 40px;
+            font-size: 30px;
             text-align: center;
         }
         #background-square{
@@ -51,6 +51,7 @@
                 height: 100%;
                 position: relative;
                 #sale {
+                    font-size: 12px;
                     width: 100%;
                     height: 43%;
                     position: absolute;
@@ -67,7 +68,7 @@
                         justify-content: center;
                         align-items: center;
                         writing-mode: vertical-lr;
-                        font-size: 40px;
+                        font-size: 30px;
                         width: 30%;
                         height: 100%;
                     }
@@ -79,6 +80,7 @@
                     }
                 }
                 #buy{
+                    font-size: 12px;
                     width: 100%;
                     height: 43%;
                     position: absolute;
@@ -95,7 +97,7 @@
                         justify-content: center;
                         align-items: center;
                         writing-mode: vertical-lr;
-                        font-size: 40px;
+                        font-size: 30px;
                         width: 30%;
                         height: 100%;
                     }
@@ -117,6 +119,7 @@
                 background-color: #F1F1F1;
                 border: 3px solid #B5CDA3;
                 padding-left: 10px;
+                font-size: 12px;
                 #merchandise-image{
                     height: 95%;
                     width: 50%;

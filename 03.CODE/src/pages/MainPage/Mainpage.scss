@@ -69,7 +69,7 @@ code {
 
 #contact-main-frame{
   width: 60%;
-  height: 800px;
+  height: 700px;
   margin-top: 100px;
   margin-bottom: 100px;
   grid-template-rows: repeat(8,1fr);
@@ -79,19 +79,19 @@ code {
   #contact-title{
     grid-row: 1;
     text-Align: center;
-    font-Size: 50px;
+    font-Size: 40px;
   }
   #contact-subtitle{
     grid-row: 2;
     text-Align: left;
     font-Size: 20px;
     font-Family: bold;
-    margin-Top: 50px;
+    margin-Top: 40px;
   }
   .textarea{
     margin-Top:20px;
-    width:730px;
-    height:50px;
+    width:400px;
+    height:40px;
     padding:10px;
     #tx-name{
       grid-row: 3;
@@ -107,7 +107,7 @@ code {
     }
   }
   .higher-textarea{
-    height: 150px;
+    height: 100px;
   }
   #button-align{
     grid-row: 7px;
@@ -118,12 +118,12 @@ code {
     #save-button{
       grid-row: 7;
       margin-Top:20px;
-      width:150px;
-      height:80px;
+      width:100px;
+      height:60px;
       text-Align:center;
       vertical-Align:middle;
       align-items: center;
-      font-Size:30px;
+      font-Size:20px;
       background:#C1AC95;
       border:none;
       border-Radius:15px;

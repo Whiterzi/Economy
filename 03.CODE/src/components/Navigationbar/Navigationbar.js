@@ -62,7 +62,7 @@ const Navbar = () => {
     <div className={`${currentpath === '/greenmatch' && 'greenbackground'}`} id="navbar">
       <div id="navleft">
         <div onClick={movetoHomepage}>
-          <img src={require('../../imgs/GreenMatchICON.png')} alt="ellipse"></img>
+          <img id='home-logo' src={require('../../imgs/GreenMatchICON.png')} alt="ellipse"></img>
         </div>
       </div>
       <div id="navright">
@@ -79,9 +79,7 @@ const Navbar = () => {
           聯繫我們
         </div>
         <div className="navbar-right-block">
-          {
-            <img src={iconwhite} alt='icon' />
-          }
+            <img id='right-icon' src={iconwhite} alt='icon' />
         </div>
       </div>
     </div>
