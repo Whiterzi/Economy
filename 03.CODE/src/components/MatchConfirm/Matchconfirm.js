@@ -23,10 +23,10 @@ const MatchconfirmPop = (props) => {
                             賣方
                         </div>
                         <div id='sale-content'>
-                            <p>公司名稱：{ }</p>
-                            <p>聯絡窗口：{ }</p>
-                            <p>聯絡方式：{ }</p>
-                            <p>email：{ }</p>
+                            <p>公司名稱：{ 'Amazon Mortal Design'}</p>
+                            <p>聯絡窗口：{ '蘇小姐'}</p>
+                            <p>聯絡方式：{ '0912345678'}</p>
+                            <p>email：{ 'amd@amd.com.org.gov' }</p>
                         </div>
                     </div>
                     <div id="buy">
@@ -34,15 +34,17 @@ const MatchconfirmPop = (props) => {
                             買方
                         </div>
                         <div id='buy-content'>
-                            <p>公司名稱：{ }</p>
-                            <p>聯絡窗口：{ }</p>
-                            <p>聯絡方式：{ }</p>
-                            <p>email：{ }</p>
+                            <p>公司名稱：{ 'Navigation Vibrate Define Indivisual Apple'}</p>
+                            <p>聯絡窗口：{ '黃先生'}</p>
+                            <p>聯絡方式：{ '0912345562'}</p>
+                            <p>email：{ 'nvidlma@ndmia.super.com'}</p>
                         </div>
                     </div>
                 </div>
                 <div id="merchandise-info">
-                    <div id='merchandise-image'></div>
+                    <div id='merchandise-image'>
+                        <img src={require('../../imgs/img2.jpg')} alt="" />
+                    </div>
                     <div id='merchandise-content'>
                         <div id='info'>
                             <p>編號：{datalist.id}</p>
@@ -65,7 +67,7 @@ const MatchconfirmPop = (props) => {
                 </div>
             </div>
             <div id='precautions'>
-                <p>注意事項：</p>
+                <p>注意事項：無</p>
             </div>
 
             <div id="background-square" />
