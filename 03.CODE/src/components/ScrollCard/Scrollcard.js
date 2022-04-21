@@ -119,7 +119,9 @@ const ImageCarousel = () => {
     }
     return (
         <>
-            <img alt="img" className="imgbox" src={require(`../../imgs/${Selectedimg}`)} />
+            <div className="imgbox">
+                <img alt="img" src={require(`../../imgs/${Selectedimg}`)} />
+            </div>
             <div id='carousel-container'>
                 <div id='carousel-dot-container'>
                     <GenetateNavigationDot SelectedDot={Selectedimg} onDotClick={onImgChange} />

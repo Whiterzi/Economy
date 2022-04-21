@@ -17,7 +17,9 @@ const InfocardImageView = () => {
                 {imgset.map(element => {
                     return (
                         Bigimage.indexOf(element) === -1 &&
-                        <img id={element} alt='img' src={require(`../../imgs/${element}`)} onClick={onItemClick} className='imageview-left-item' />
+                        <div className="imageview-left-item">
+                            <img id={element} alt='img' src={require(`../../imgs/${element}`)} onClick={onItemClick} />
+                        </div>
                     )
                 })}
             </div>
